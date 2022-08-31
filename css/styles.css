@@ -1,0 +1,167 @@
+h1 {
+  color: #555;
+  font-size: 24px;
+}
+
+h2 {
+  color: #555;
+  font-size: 18px;
+}
+
+.logo {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+}
+.top-nav-container {
+  background-color: #63388b;
+}
+.nav-list-container {
+  background-color: #7f5aa1;
+}
+
+.login-btn,
+.cart-btn {
+  color: white;
+  font-size: 30px;
+  margin-left: 30px;
+}
+.nav-item a {
+  color: white;
+}
+.nav-item a:hover {
+  color: orange;
+}
+
+.navbar-icon {
+  color: white;
+  font-size: 30px;
+}
+.images-container {
+  background-color: #63389b;
+  padding-top: 20px;
+  min-height: 300px;
+}
+h1.subtitle {
+  color: white;
+  font-size: 24px;
+  margin: 10px 0;
+}
+
+.banner-image {
+  width: 200px;
+  height: 200px;
+  margin: 10px;
+}
+.banner-image:hover {
+  transform: scale(1.1);
+  transition: 0.5s;
+}
+.filter-list-wrapper {
+  padding: 0 0 0 10px;
+  min-height: min-content;
+  border-right: 1px solid rgb(184, 182, 182);
+}
+.product-list-wrapper {
+  min-height: min-content;
+}
+.btn-filter {
+  display: none;
+}
+.category-list li {
+  border: none;
+  color: #555;
+}
+.category-list {
+  text-decoration: none;
+}
+
+.detail-image img {
+  width: 80%;
+}
+.detail-btn-cart {
+  clear: both;
+  display: block;
+  width: 200px;
+}
+.stock-description {
+  clear: both;
+  font-size: 14px;
+  color: #555;
+  margin: 20px 0;
+}
+.features li {
+  font-size: 14px;
+}
+.register-input {
+  width: 40%;
+  margin: 10px;
+}
+.register-input-address {
+  width: 60%;
+  margin: 10px;
+}
+.register-input-postcode {
+  width: 20%;
+  margin: 10px;
+}
+.btn-register {
+  width: 50%;
+}
+.btn-search {
+  width: 120px;
+  height: 58px;
+}
+.search-input {
+  width: 60%;
+}
+
+@media screen and (max-width: 768px) {
+  .filter-list-wrapper,
+  .btn-hide,
+  .filter-title {
+    display: none;
+  }
+  .btn-filter {
+    display: inline-block;
+  }
+  .register-input,
+  .register-input-address,
+  .register-input-postcode,
+  .btn-register,
+  .btn-search,
+  .search-input {
+    width: 100%;
+  }
+  .footer {
+    position: static;
+  }
+}
+
+@media screen and (max-width: 475px) {
+  .cart-btn-wrapper button {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+  }
+  .first-row-price {
+    display: none;
+  }
+  .hidden-price {
+    display: block;
+  }
+  .search-input {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 385px) {
+  .label-email {
+    font-size: 12px;
+  }
+}
+@media screen and (min-width: 460px) {
+  .hidden-price {
+    display: none;
+  }
+}
