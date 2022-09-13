@@ -1,6 +1,6 @@
 <?php
     $title = "Mobile Hour";
-//     require_once 'db/conn.php';
+    require_once 'db/conn.php';
     require_once 'includes/header.php';
 ?>
  <div class="home-slide">
