@@ -1,4 +1,4 @@
-# This project is a little complex. I spent one month to complete it.
+# This project is a little complex. I built it from scratch.
 
  My work includes:
 
