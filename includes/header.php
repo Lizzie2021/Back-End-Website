@@ -72,7 +72,7 @@
             <a href="login.php">
               <i class="bi bi-person-circle login-btn"></i>
             </a>
-            <a class="text-decoration-none" href="cart.php"><i class="bi bi-bag cart-btn"></i> <span  class="cart-count text-warning fw-bold" style="position: absolute;"><?php 
+            <a class="text-decoration-none" href="cart.php" style="position: relative;"><i class="bi bi-bag cart-btn"></i> <span  class="cart-count text-warning fw-bold" style="position: absolute; top: -5px; right: -5px"><?php 
             echo $_SESSION['count'];
            ?></span></a>
             <?php
