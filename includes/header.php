@@ -13,12 +13,17 @@
   
     if(isset($_GET['add-id'])){
     if(!in_array($_GET['add-id'],$_SESSION['cart_arr'])){
-      $_SESSION['count'] = $_SESSION['count'] + 1;
       array_push($_SESSION['cart_arr'],$_GET['add-id']);
-      $_SESSION['quantity_arr'][$_GET['add-id']] = 1;
-
+      if(isset($_GET['quantity'])){
+        $_SESSION['count'] = $_SESSION['count'] + $_GET['quantity'];
+        $_SESSION['quantity_arr'][$_GET['add-id']] = $_GET['quantity'];
+      }else{
+        $_SESSION['count'] = $_SESSION['count'] + 1;
+        $_SESSION['quantity_arr'][$_GET['add-id']] = 1;
+      }
     }else{
       echo'<script>alert("This item is already in your shopping cart.")</script>';
+     
      }
   }
 ?>
@@ -54,7 +59,7 @@
           <?php
             if(isset($_SESSION['firstname'])
             && !isset($_SESSION['username'])){
-              echo '<h1 class="text-light me-auto">Welcome,  '. $_SESSION['firstname']. '!</h1>';
+              echo '<h1 class="text-light me-auto">Welcome,   '. $_SESSION['firstname']. '!</h1>';
             }
            
           ?>

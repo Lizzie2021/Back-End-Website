@@ -6,13 +6,25 @@
       $_SESSION['cart_arr'] = array_filter($_SESSION['cart_arr'], function($el){
           return $el !== $_GET['delete'];
         });
-        $_SESSION['count'] = count($_SESSION['cart_arr']);
+        unset($_SESSION['quantity_arr'][$_GET['delete']]);
+        caluSumQuantity();
         header("Location: cart.php");
     } 
    if(isset($_GET['order'])){
       if($_GET['order'])
       header("Location: order.php");
       else echo '<div class="alert alert-danger text-center">No item in your shopping cart.</div>';}
+
+      function caluSumQuantity(){
+
+        $sum = 0;
+        foreach($_SESSION['quantity_arr'] as $num){  
+          $sum = $sum + $num;
+        }
+        $_SESSION['count'] = $sum;
+        
+      }
+   
 ?>
 
  <div class="container ">
@@ -31,7 +43,10 @@
           $products_id = $_SESSION['cart_arr'];
           foreach($products_id as $product_id){
             if(isset($_POST['quantity_'.$product_id])){
-              $_SESSION['quantity_arr'][$product_id] = $_POST['quantity_'.$product_id] ;}
+              $_SESSION['quantity_arr'][$product_id] = $_POST['quantity_'.$product_id] ;
+              caluSumQuantity();
+              header("Location: cart.php");
+            }
             $result = $crud->getProductById($product_id);
             $r = $crud->getFeaturesByProductId($product_id);?>
             <tr>
@@ -55,6 +70,7 @@
                         min="1"
                         max="9"
                       />
+                     
                   </td>
                   <td class="first-row-price" style="font-size: 14px" >$<?php echo floatval($result['price']) * floatval($_SESSION['quantity_arr'][$product_id]); ?></td>
                   <td><a href="cart.php?delete=<?php echo $product_id?>" role="button" class="link-danger"><i class="bi bi-x-circle-fill"></i></a></td>

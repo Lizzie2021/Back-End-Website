@@ -52,7 +52,7 @@
             ?>"
           />
           <label for="username/email" class="text-secondary label-email"
-            >Admin Username / Customer Email</label
+            >Username / Email</label
           >
         </div>
         <div class="form-floating mb-5">

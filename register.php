@@ -3,9 +3,8 @@
     require_once 'db/conn.php';
     require_once 'includes/header.php';
     if(isset($_POST['submit'])){
-      $fname = $_POST['firstname'];
-      $lname = $_POST['lastname'];
-      $lname = $_POST['lastname'];
+      $fname = ucfirst(strtolower($_POST['firstname']));
+      $lname = ucfirst(strtolower($_POST['lastname']));
       $email = $_POST['email'];
       $phone = $_POST['phone'];
       $address = $_POST['address'];
@@ -39,10 +38,14 @@
             id="firstname"
             name="firstname"
             placeholder="First Name"
+            pattern="^[^-\s][a-zA-Z_\s-]+$"
+            title="Only contains a-z, A-Z, - , _ and whitespace."
+            required
           />
           <label for="firstname" class="text-secondary label-email"
             >First Name</label
           >
+          <div class="errMessage"></div>
         </div>
         <div class="form-floating mb-2 d-md-inline-block register-input">
           <input
@@ -51,8 +54,12 @@
             id="lastname"
             name="lastname"
             placeholder="Last Name"
+            pattern="^[^-\s][a-zA-Z_\s-]+$"
+            title="Only contains a-z, A-Z, - , _ and whitespace."
+            required
           />
           <label for="lastname" class="text-secondary">Last Name</label>
+          <div class="errMessage"></div>
         </div>
         <div class="form-floating mb-2 d-md-inline-block register-input">
           <input
@@ -61,18 +68,27 @@
             id="email"
             name="email"
             placeholder="email"
+            placeholder="Your Email Address"
+            pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
+            required
           />
           <label for="email" class="text-secondary">Email</label>
+          <div class="errMessage"></div>
         </div>
         <div class="form-floating mb-2 d-md-inline-block register-input">
           <input
-            type="text"
+            type="tel"
             class="form-control"
             id="phone"
             name="phone"
             placeholder="phone"
+            maxlength="20"
+            pattern="^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$"
+            title="Please input 10 digit phone number."
+            required
           />
           <label for="phone" class="text-secondary">Phone</label>
+          <div class="errMessage"></div>
         </div>
         <div
           class="form-floating mb-2 d-md-inline-block register-input-address"

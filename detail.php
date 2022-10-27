@@ -37,27 +37,29 @@
               </p>
               
               <p class="card-text float-start me-3 mt-1">Quantity:</p>
+              <form action="cart.php" method="get" >
               <input
                 type="number"
                 name="quantity"
                 class="form-control border-secondary"
                 placeholder="1"
-                value = 1
+                value="1"
                 aria-label="quantity"
                 style="width: 60px"
                 min="1"
                 max="9"
               />
+              <input name="add-id" value="<?php echo $product_id?>" type="text" style="display: none;"/>
               <p class="card-text stock-description">
               <?php
                     if(intval($result['stock_on_hand'])>0) echo "✅ In Stock. Dispatch in 1 ~ 2 business day.";
                     else echo "⛔️ Out of Stock."
                     ?>
               </p>
-              <a href="cart.php?add-id=<?php echo $product_id?>" class="btn btn-success detail-btn-cart" 
+              <button type="submit" class="btn btn-success detail-btn-cart" 
                 >ADD TO CART <i class="bi bi-cart-plus-fill ps-1 fs-5"></i
-              ></a>
-             
+              ></button>
+             </form>
             </div>
           </div>
           <hr />

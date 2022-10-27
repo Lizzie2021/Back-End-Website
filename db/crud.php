@@ -489,19 +489,8 @@
         }
     }
 
-    public function getProductPriceByProductId($product_id){
-        try{
-            $sql = "SELECT `price` FROM `product` WHERE $product_id = :product_id";
-            $stmt = $this->db->prepare($sql);
-            $stmt->bindValue(':product_id',$product_id);
-            $stmt->execute();
-            $result = $stmt->fetch();
-            return $result;
-        }catch(PDOException $e){
-            echo $e->getMessage();
-            return false;
-        }
-    }
+    
+    
         
 }
 ?>

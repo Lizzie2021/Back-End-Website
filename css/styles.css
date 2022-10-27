@@ -105,9 +105,31 @@ h1.subtitle {
   width: 20%;
   margin: 10px;
 }
+input#firstname:invalid + .errMessage::after,
+input#lastname:invalid + .errMessage::after {
+  content: "Please input valid name, only contains a-z, A-Z, - , _ and whitespace!";
+  color: red;
+}
+
+input#email:invalid + .errMessage::after {
+  content: "Please input valid email address!";
+  color: red;
+}
+
+input#phone:invalid + .errMessage::after {
+  content: "Please input 10 digit phone number!";
+  color: red;
+}
+
+.errMessage {
+  display: none;
+  font-size: 0.8rem;
+}
+
 .btn-register {
   width: 50%;
 }
+
 .btn-search {
   width: 120px;
   height: 58px;
